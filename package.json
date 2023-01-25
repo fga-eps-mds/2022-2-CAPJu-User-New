@@ -19,9 +19,12 @@
   },
   "homepage": "https://github.com/fga-eps-mds/2022-2-CAPJu-User-New#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "sequelize": "^6.28.0"
+    "sequelize": "^6.28.0",
+    "swagger": "^0.7.5",
+    "swagger-ui-express": "^4.6.0"
   },
   "devDependencies": {
     "eslint": "^8.32.0",

@@ -1,0 +1,64 @@
+{
+    "/newUser": {
+        "post": {
+            "summary": "Cria um novo usuário",
+            "description": "Cria um novo usuário",
+            "produces": [
+                "application/json"
+            ],
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "Successfull operation",
+                    "schema": {
+                        "User": {
+                            "type": "object",
+                            "properties": {
+                                "cpf": {
+                                    "type": "string"
+                                },
+                                "fullNname": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password":{
+                                    "type":"string"
+                                },
+                                "accepted":{
+                                    "type":"boolean"
+                                },                                
+                                "idUnit":{
+                                    "type":"integer"
+                                },
+                                "idRole":{
+                                    "type":"integer"
+                                },
+                                "updatedAt": {
+                                    "type": "string"
+                                },
+                                "createdAt": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
