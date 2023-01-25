@@ -1,0 +1,607 @@
+{
+    "/newUser":{
+        "post": {
+            "summary":"Cria uma nova usuário",
+            "description":"Cria uma nova usuário",
+            "produces":["application/json"],
+            "requestBody":{
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "type":"object",
+                            "properties":{
+                                "fullName":{
+                                    "type":"string"
+                                },
+                                "cpf":{
+                                    "type":"string"
+                                },
+                                "email":{
+                                    "type":"string"
+                                },
+                                "idUnit":{
+                                    "type":"integer"
+                                },
+                                "idRole":{
+                                    "type":"integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses":{
+                "200":{
+                    "description":"Successfull operation",
+                    "schema":{
+                        "Unit":{
+                            "type":"object",
+                            "properties":{
+                                "fullName":{
+                                    "type":"string"
+                                },
+                                "cpf":{
+                                    "type":"string"
+                                },
+                                "email":{
+                                    "type":"string"
+                                },
+                                "idUnit":{
+                                    "type":"integer"
+                                },
+                                "idRole":{
+                                    "type":"integer"
+                                },
+                                "updatedAt": {
+                                    "type":"string"
+                                },
+                                "createdAt": {
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    "/login":{
+        "post": {
+            "summary":"Login",
+            "description":"Login",
+            "produces":["application/json"],
+            "requestBody":{
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "type":"object",
+                            "properties":{
+                                "cpf":{
+                                    "type":"string"
+                                },
+                                "password":{
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses":{
+                "200":{
+                    "description":"Successfull operation",
+                    "schema":{
+                        "Unit":{
+                            "type":"object",
+                            "properties":{
+                                "fullName":{
+                                    "type":"string"
+                                },
+                                "cpf":{
+                                    "type":"string"
+                                },
+                                "email":{
+                                    "type":"string"
+                                },
+                                "idUnit":{
+                                    "type":"integer"
+                                },
+                                "token":{
+                                    "type":"string"
+                                },
+                                "expiresIn": {
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "/updateUser/{id}":{
+        "put":{
+            "summary":"Atualiza um usuário",
+            "description":"Atualiza um usuário",
+            "produces":["application/json"],
+            "parameters":[
+                {
+                    "name":"id",
+                    "in":"path",
+                    "description":"ID do usuário",
+                    "required":true,
+                    "type":"integer"
+                }
+            ],
+            "requestBody":{
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "type":"object",
+                            "properties":{
+                                "email":{
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses":{
+                "200":{
+                    "description":"Successfull operation",
+                    "schema":{
+                        "Unit":{
+                            "type":"object",
+                            "properties":{
+                                "fullName":{
+                                    "type":"string"
+                                },
+                                "cpf":{
+                                    "type":"string"
+                                },
+                                "email":{
+                                    "type":"string"
+                                },
+                                "password":{
+                                    "type": "string"
+                                },
+                                "accepted":{
+                                    "type": "boolean"
+                                },
+                                "idUnit":{
+                                    "type":"integer"
+                                },
+                                "idRole":{
+                                    "type":"integer"
+                                },
+                                "updatedAt": {
+                                    "type":"string"
+                                },
+                                "createdAt": {
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "/alluser":{
+        "get":{
+            "summary":"Lista todos os usuários",
+            "description":"Lista todos os usuários",
+            "produces":["application/json"],
+            "responses":{
+                "200":{
+                    "description":"Successfull operation",
+                    "schema":{
+                        "Unit":{
+                            "type":"object",
+                            "properties":{
+                                "fullName":{
+                                    "type":"string"
+                                },
+                                "cpf":{
+                                    "type":"string"
+                                },
+                                "email":{
+                                    "type":"string"
+                                },
+                                "password":{
+                                    "type": "string"
+                                },
+                                "accepted":{
+                                    "type": "boolean"
+                                },
+                                "idUnit":{
+                                    "type":"integer"
+                                },
+                                "idRole":{
+                                    "type":"integer"
+                                },
+                                "updatedAt": {
+                                    "type":"string"
+                                },
+                                "createdAt": {
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "updateUserPassword/{id}":{
+        "post":{
+            "summary":"Atualiza a senha do usuário",
+            "description":"Atualiza a senha do usuário",
+            "produces":["application/json"],
+            "parameters":[
+                {
+                    "name":"id",
+                    "in":"path",
+                    "description":"ID do usuário",
+                    "required":true,
+                    "type":"integer"
+                }
+            ],
+            "requestBody":{
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "type":"object",
+                            "properties":{
+                                "oldpassword":{
+                                    "type":"string"
+                                },
+                                "newpassword":{
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses":{
+                "200":{
+                    "description":"Successfull operation",
+                    "schema":{
+                        "Unit":{
+                            "type":"object",
+                            "properties":{
+                                "message":{
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "/deleteUser/{id}":{
+        "delete":{
+            "summary":"Deleta um usuário",
+            "description":"Deleta um usuário",
+            "produces":["application/json"],
+            "parameters":[
+                {
+                    "name":"id",
+                    "in":"path",
+                    "description":"ID do usuário",
+                    "required":true,
+                    "type":"integer"
+                }
+            ],
+            "responses":{
+                "200":{
+                    "description":"Successfull operation",
+                    "schema":{
+                        "Unit":{
+                            "type":"object",
+                            "properties":{
+                                "fullName":{
+                                    "type":"string"
+                                },
+                                "cpf":{
+                                    "type":"string"
+                                },
+                                "email":{
+                                    "type":"string"
+                                },
+                                "password":{
+                                    "type": "string"
+                                },
+                                "accepted":{
+                                    "type": "boolean"
+                                },
+                                "idUnit":{
+                                    "type":"integer"
+                                },
+                                "idRole":{
+                                    "type":"integer"
+                                },
+                                "updatedAt": {
+                                    "type":"string"
+                                },
+                                "createdAt": {
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "user/{id}":{
+        "get":{
+            "summary":"Busca um usuário",
+            "description":"Busca um usuário a partir de seu cpf",
+            "produces":["application/json"],
+            "parameters":[
+                {
+                    "name":"id",
+                    "in":"path",
+                    "description":"ID do usuário",
+                    "required":true,
+                    "type":"integer"
+                }
+            ],
+            "responses":{
+                "200":{
+                    "description":"Successfull operation",
+                    "schema":{
+                        "Unit":{
+                            "type":"object",
+                            "properties":{
+                                "fullName":{
+                                    "type":"string"
+                                },
+                                "cpf":{
+                                    "type":"string"
+                                },
+                                "email":{
+                                    "type":"string"
+                                },
+                                "password":{
+                                    "type": "string"
+                                },
+                                "accepted":{
+                                    "type": "boolean"
+                                },
+                                "idUnit":{
+                                    "type":"integer"
+                                },
+                                "idRole":{
+                                    "type":"integer"
+                                },
+                                "updatedAt": {
+                                    "type":"string"
+                                },
+                                "createdAt": {
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "/aceptRequest/{id}":{
+        "post":{
+            "summary":"Aceita um usuário",
+            "description":"Aceita um usuário",
+            "produces":["application/json"],
+            "parameters":[
+                {
+                    "name":"id",
+                    "in":"path",
+                    "description":"ID do usuário",
+                    "required":true,
+                    "type":"integer"
+                }
+            ],
+            "responses":{
+                "200":{
+                    "description":"Successfull operation",
+                    "schema":{
+                        "Unit":{
+                            "type":"object",
+                            "properties":{
+                                "fullName":{
+                                    "type":"string"
+                                },
+                                "cpf":{
+                                    "type":"string"
+                                },
+                                "email":{
+                                    "type":"string"
+                                },
+                                "password":{
+                                    "type": "string"
+                                },
+                                "accepted":{
+                                    "type": "boolean"
+                                },
+                                "idUnit":{
+                                    "type":"integer"
+                                },
+                                "idRole":{
+                                    "type":"integer"
+                                },
+                                "updatedAt": {
+                                    "type":"string"
+                                },
+                                "createdAt": {
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "deleteRequest/{id}":{
+        "delete":{
+            "summary":"Deleta um usuário",
+            "description":"Deleta um usuário",
+            "produces":["application/json"],
+            "parameters":[
+                {
+                    "name":"id",
+                    "in":"path",
+                    "description":"ID do usuário",
+                    "required":true,
+                    "type":"integer"
+                }
+            ],
+            "responses":{
+                "200":{
+                    "description":"Successfull operation",
+                    "schema":{
+                        "Unit":{
+                            "type":"object",
+                            "properties":{
+                                "fullName":{
+                                    "type":"string"
+                                },
+                                "cpf":{
+                                    "type":"string"
+                                },
+                                "email":{
+                                    "type":"string"
+                                },
+                                "password":{
+                                    "type": "string"
+                                },
+                                "accepted":{
+                                    "type": "boolean"
+                                },
+                                "idUnit":{
+                                    "type":"integer"
+                                },
+                                "idRole":{
+                                    "type":"integer"
+                                },
+                                "updatedAt": {
+                                    "type":"string"
+                                },
+                                "createdAt": {
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "updateUserRole":{
+        "put":{
+            "summary":"Atualiza o cargo de um usuário",
+            "description":"Atualiza o cargo de um usuário",
+            "produces":["application/json"],
+            "parameters":[
+                {
+                    "name":"cpf",
+                    "in":"path",
+                    "description":"ID do usuário",
+                    "required":true,
+                    "type":"integer"
+                },
+                {
+                    "name":"idRole",
+                    "in":"path",
+                    "description":"ID do cargo",
+                    "required":true,
+                    "type":"integer"
+                }
+            ],
+            "responses":{
+                "200":{
+                    "description":"Successfull operation",
+                    "schema":{
+                        "Unit":{
+                            "type":"object",
+                            "properties":{
+                                "fullName":{
+                                    "type":"string"
+                                },
+                                "cpf":{
+                                    "type":"string"
+                                },
+                                "email":{
+                                    "type":"string"
+                                },
+                                "password":{
+                                    "type": "string"
+                                },
+                                "accepted":{
+                                    "type": "boolean"
+                                },
+                                "idUnit":{
+                                    "type":"integer"
+                                },
+                                "idRole":{
+                                    "type":"integer"
+                                },
+                                "updatedAt": {
+                                    "type":"string"
+                                },
+                                "createdAt": {
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+            "responses":{
+                "200":{
+                    "description":"Successfull operation",
+                    "schema":{
+                        "Unit":{
+                            "type":"object",
+                            "properties":{
+                                "fullName":{
+                                    "type":"string"
+                                },
+                                "cpf":{
+                                    "type":"string"
+                                },
+                                "email":{
+                                    "type":"string"
+                                },
+                                "password":{
+                                    "type": "string"
+                                },
+                                "accepted":{
+                                    "type": "boolean"
+                                },
+                                "idUnit":{
+                                    "type":"integer"
+                                },
+                                "idRole":{
+                                    "type":"integer"
+                                },
+                                "updatedAt": {
+                                    "type":"string"
+                                },
+                                "createdAt": {
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
