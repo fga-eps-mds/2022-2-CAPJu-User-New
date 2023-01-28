@@ -38,6 +38,7 @@ class UserController {
                     fullName: user.fullName,
                     email: user.email,
                     idUnit: user.idUnit,
+                    idRole: user.idRole,
                     token: generateToken(user.cpf),
                     expiresIn,
                 });
